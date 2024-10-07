@@ -42,8 +42,6 @@ const CountryInfo = ({ params }: { params: { countrycode: string }}) => {
     const [countryData, setCountryData] = useState<CountryData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    console.log("Soy yo: ", countryData);
-
     useEffect(() => {
 
         const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -65,10 +63,9 @@ const CountryInfo = ({ params }: { params: { countrycode: string }}) => {
         router.push(`/countries/${countryCode}`);
     }
 
-        const latestPopulation = countryData?.population?.length
-        ? countryData.population[countryData.population.length - 1]
-        : null;
-
+    const latestPopulation = countryData?.population?.length
+    ? countryData.population[countryData.population.length - 1]
+    : null;
 
     return (
         <div className="container mx-auto max-w-4xl p-4">
